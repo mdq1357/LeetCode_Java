@@ -35,24 +35,24 @@ public class rob_337 {
     }
 
     /**法二 */
-    public static int rob(TreeNode root) {
-        int[] res=dp(root);
-        return Math.max(res[0],res[1]);
-    }
-
-    public int[] dp(TreeNode root){ //res[0]代表不抢的结果，res[1]代表抢的结果
-        if(root==null) return new int[]{0,0};
-        int[] rob_left=dp(root.left);
-        int[] rob_right=dp(root.right);
-        //抢
-        int do_it=root.val+rob_left[0]+rob_right[0];
-        //不抢
-        int not_do=Math.max(rob_left[0],rob_left[1])+Math.max(rob_right[0],rob_right[1]);
-        return new int[]{not_do,do_it};
-    }
+//    public static int rob(TreeNode root) {
+//        int[] res=dp(root);
+//        return Math.max(res[0],res[1]);
+//    }
+//
+//    public static int[] dp(TreeNode root){ //res[0]代表不抢的结果，res[1]代表抢的结果
+//        if(root==null) return new int[]{0,0};
+//        int[] rob_left=dp(root.left);
+//        int[] rob_right=dp(root.right);
+//        //抢
+//        int do_it=root.val+rob_left[0]+rob_right[0];
+//        //不抢
+//        int not_do=Math.max(rob_left[0],rob_left[1])+Math.max(rob_right[0],rob_right[1]);
+//        return new int[]{not_do,do_it};
+//    }
 
     //TreeNode说明
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
